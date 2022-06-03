@@ -1,0 +1,15 @@
+@import '../../sass/abstract/variables';
+
+#footer {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  opacity: 0.3;
+}
+
+@media (max-width: $screen-lg) {
+  #footer {
+    margin-left: 180px!important;
+  }
+}

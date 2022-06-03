@@ -1,0 +1,127 @@
+@import '../../sass/themes/colors';
+
+.button {
+  display: inline-block;
+  margin: 20px;
+  position: relative;
+  font-size: 1rem!important;
+  line-height: 1rem;
+  border-radius: 5px;
+  overflow: hidden;
+  color:$primary;
+  background-color: $primary;
+  cursor: pointer;
+
+  &--outlined {
+    background-color: transparent;
+    border: 2px solid $primary;
+    color: $primary!important;
+    transition: border-color .15s ease-in-out  ;
+
+    button, a {
+      transition: color .15s ease-in-out  ;
+      color: $grey-ligth!important;
+    }
+
+    &::before {
+      display:none!important;
+    }
+
+    &:hover {
+      border-color: $secondary;
+      button, a {
+        color:$primary!important;
+      }
+    }
+  }
+
+  &__loader {
+    position:absolute;
+    top:50%;
+    left: 50%;
+    height: 18px;
+    width: 18px;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+
+    &::before {
+      content: '';
+      position:absolute;
+      top:0;
+      left:0;
+      height: 12px;
+      width: 12px;
+      border: 3px solid white;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      animation: rotate 0.7s infinite linear;
+    }
+  }
+
+  &--isloading {    
+    &::before {
+      background-color: transparent!important;
+    }
+    button, a  {
+      opacity: 0;
+    }
+
+    button, a {
+      cursor:default!important;
+    }
+    
+  }
+
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.4;
+    background-color: gray;
+    button, a {
+      cursor:default!important;
+    }
+  }
+
+  button, a {
+    position: relative;
+    display:block;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    background-color: transparent;
+    color:white;
+    font-size: 1rem!important;
+    line-height: 1rem;
+    z-index: 1;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  &::before {
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+    content: '';
+    z-index: 0;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 0.3;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

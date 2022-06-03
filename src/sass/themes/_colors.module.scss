@@ -1,0 +1,9 @@
+@import './colors';
+
+:export {
+  primary: $primary;
+  secondary: $secondary;
+  danger: $danger;
+  grey-ligth: $grey-ligth;
+  green-ligth: $green-ligth;
+}

@@ -1,0 +1,79 @@
+.date-picker {
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 300px;
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active{
+    background-clip: text !important;
+    -webkit-text-fill-color: white !important;
+  }
+
+  label, input {
+    padding: 5px 10px;
+    width: 100%;
+  }
+
+  input {
+    margin-bottom: 15px;
+    position: relative;
+    background: none;
+    border: none;    
+    border: 1px  solid darkgrey;
+    outline: none;
+    caret-color: lightblue;
+    font-size: 1rem;
+    transition: border .3s ease-in-out;
+    z-index: 2;
+    border-radius: 5px;
+
+    &:disabled {
+      opacity: 0.3;
+    }
+
+    &:focus {
+      border: 1px  solid lightblue;
+    }
+  }
+
+  label {
+    position: absolute;
+    top:0;
+    left: 0;
+    line-height: 1.3rem;
+    transform-origin: center left;
+    transition: transform .15s ease-in-out;
+  }
+
+  &__error-message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: red!important;
+  }
+
+  &--focus, &--active {
+    label {      
+      transform: translate(-5px, -25px) scale(0.85);
+    }
+  }
+
+  &--focus {
+    label { 
+      color: lightblue;
+    }
+  }
+
+  &--error {
+    label, input {      
+      color: red!important;
+    }
+
+    input {
+      border: 1px  solid red!important;
+    }
+  }
+}
