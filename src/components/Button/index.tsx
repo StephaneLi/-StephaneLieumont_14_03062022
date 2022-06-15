@@ -6,7 +6,7 @@ import './style.scss'
 const Button: FunctionComponent<ButtonType> = ({label = "button", outlined = false, buttonLink = false, loading = false, disabled = false, callback}) => {
   if(buttonLink) {
     return (
-      <div className={`button ${ outlined && 'button--outlined'} ${ loading && 'button--isloading'}`}>
+      <div className={`button${ outlined ? ' button--outlined' : ''}${ loading ? ' button--isloading' : ''}`}>
         { loading && ( <div className="button__loader"></div> )}
         <NavLink className={({ isActive }) => (isActive ? 'active' : '')} to="/a-propos">{label}</NavLink>
       </div>    
@@ -14,7 +14,9 @@ const Button: FunctionComponent<ButtonType> = ({label = "button", outlined = fal
   }
   
   return (
-    <div className={`button ${ outlined ? 'button--outlined' : ''} ${ disabled ? 'button--disabled' : ''} ${ loading && 'button--isloading'}`}>
+    <div className={
+      `button${ outlined ? ' button--outlined' : ''}${ disabled ? ' button--disabled' : ''}${ loading ? ' button--isloading' : ''}`
+    }>
       { loading && ( <div className="button__loader"></div> )}
       <button type="button" onClick={callback}>{label}</button>
     </div>    

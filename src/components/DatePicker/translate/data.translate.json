@@ -1,6 +1,6 @@
 {
   "i18n": {
-    "ar": {
+    "ar-SA": {
       "months": [
         "كانون الثاني",
         "شباط",
@@ -35,7 +35,7 @@
         "الأحد"
       ]
     },
-    "ro": {
+    "ro-RO": {
       "months": [
         "Ianuarie",
         "Februarie",
@@ -69,7 +69,7 @@
         "Sâmbătă"
       ]
     },
-    "id": {
+    "id-ID": {
       "months": [
         "Januari",
         "Februari",
@@ -103,7 +103,7 @@
         "Sabtu"
       ]
     },
-    "is": {
+    "de-DE": {
       "months": [
         "Janúar",
         "Febrúar",
@@ -137,7 +137,7 @@
         "Laugardagur"
       ]
     },
-    "bg": {
+    "bg-BG": {
       "months": [
         "Януари",
         "Февруари",
@@ -171,7 +171,7 @@
         "Събота"
       ]
     },
-    "fa": {
+    "fa-IR": {
       "months": [
         "فروردین",
         "اردیبهشت",
@@ -206,7 +206,7 @@
         "یک‌شنبه"
       ]
     },
-    "ru": {
+    "ru-RU": {
       "months": [
         "Январь",
         "Февраль",
@@ -240,7 +240,7 @@
         "Суббота"
       ]
     },
-    "uk": {
+    "uk-UA": {
       "months": [
         "Січень",
         "Лютий",
@@ -274,7 +274,7 @@
         "Субота"
       ]
     },
-    "en": {
+    "en-EN": {
       "months": [
         "January",
         "February",
@@ -308,7 +308,41 @@
         "Saturday"
       ]
     },
-    "el": {
+    "en-US": {
+      "months": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      "dayOfWeekShort": [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "dayOfWeek": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ]
+    },
+    "el-GR": {
       "months": [
         "Ιανουάριος",
         "Φεβρουάριος",
@@ -342,7 +376,7 @@
         "Σάββατο"
       ]
     },
-    "de": {
+    "de-CH": {
       "months": [
         "Januar",
         "Februar",
@@ -376,7 +410,7 @@
         "Samstag"
       ]
     },
-    "nl": {
+    "nl-NL": {
       "months": [
         "januari",
         "februari",
@@ -410,7 +444,7 @@
         "zaterdag"
       ]
     },
-    "tr": {
+    "tr-TR": {
       "months": [
         "Ocak",
         "Şubat",
@@ -444,7 +478,7 @@
         "Cumartesi"
       ]
     },
-    "fr": {
+    "fr-FR": {
       "months": [
         "Janvier",
         "Février",
@@ -478,7 +512,7 @@
         "samedi"
       ]
     },
-    "es": {
+    "es-ES": {
       "months": [
         "Enero",
         "Febrero",
@@ -512,7 +546,7 @@
         "Sábado"
       ]
     },
-    "th": {
+    "th-TH": {
       "months": [
         "มกราคม",
         "กุมภาพันธ์",
@@ -547,7 +581,7 @@
         "อาทิตย์"
       ]
     },
-    "pl": {
+    "pl-PL": {
       "months": [
         "styczeń",
         "luty",
@@ -581,7 +615,7 @@
         "sobota"
       ]
     },
-    "pt": {
+    "pt-PT": {
       "months": [
         "Janeiro",
         "Fevereiro",
@@ -615,7 +649,7 @@
         "Sábado"
       ]
     },
-    "ch": {
+    "ch-CH": {
       "months": [
         "一月",
         "二月",
@@ -640,7 +674,7 @@
         "六"
       ]
     },
-    "se": {
+    "se-SE": {
       "months": [
         "Januari",
         "Februari",
@@ -665,7 +699,7 @@
         "Lör"
       ]
     },
-    "km": {
+    "km-KH": {
       "months": [
         "មករា​",
         "កុម្ភៈ",
@@ -699,7 +733,7 @@
         "សៅរ៍"
       ]
     },
-    "kr": {
+    "kr-NG": {
       "months": [
         "1월",
         "2월",
@@ -733,7 +767,7 @@
         "토요일"
       ]
     },
-    "it": {
+    "it-IT": {
       "months": [
         "Gennaio",
         "Febbraio",
@@ -767,7 +801,7 @@
         "Sabato"
       ]
     },
-    "da": {
+    "da-DK": {
       "months": [
         "Januar",
         "Februar",
@@ -801,7 +835,7 @@
         "lørdag"
       ]
     },
-    "no": {
+    "no-NO": {
       "months": [
         "Januar",
         "Februar",
@@ -835,7 +869,7 @@
         "Lørdag"
       ]
     },
-    "ja": {
+    "ja-JP": {
       "months": [
         "1月",
         "2月",
@@ -869,7 +903,7 @@
         "土曜"
       ]
     },
-    "vi": {
+    "vi-VN": {
       "months": [
         "Tháng 1",
         "Tháng 2",
@@ -903,7 +937,7 @@
         "Thứ bảy"
       ]
     },
-    "sl": {
+    "sl-SI": {
       "months": [
         "Januar",
         "Februar",
@@ -937,7 +971,7 @@
         "Sobota"
       ]
     },
-    "cs": {
+    "cs-CZ": {
       "months": [
         "Leden",
         "Únor",
@@ -962,7 +996,7 @@
         "So"
       ]
     },
-    "hu": {
+    "hu-HU": {
       "months": [
         "Január",
         "Február",
@@ -996,7 +1030,7 @@
         "szombat"
       ]
     },
-    "az": {
+    "az-Cyrl-AZ": {
       "months": [
         "Yanvar",
         "Fevral",
@@ -1030,7 +1064,7 @@
         "Şənbə"
       ]
     },
-    "bs": {
+    "bs-Latn-BA": {
       "months": [
         "Januar",
         "Februar",
@@ -1064,7 +1098,7 @@
         "Subota"
       ]
     },
-    "ca": {
+    "ca-AD": {
       "months": [
         "Gener",
         "Febrer",
@@ -1132,7 +1166,7 @@
         "Saturday"
       ]
     },
-    "et": {
+    "et-EE": {
       "months": [
         "Jaanuar",
         "Veebruar",
@@ -1166,7 +1200,7 @@
         "Laupäev"
       ]
     },
-    "eu": {
+    "eu-ES": {
       "months": [
         "Urtarrila",
         "Otsaila",
@@ -1200,7 +1234,7 @@
         "Larunbata"
       ]
     },
-    "fi": {
+    "fi-FI": {
       "months": [
         "Tammikuu",
         "Helmikuu",
@@ -1234,7 +1268,7 @@
         "lauantai"
       ]
     },
-    "gl": {
+    "gl-ES": {
       "months": [
         "Xan",
         "Feb",
@@ -1268,7 +1302,7 @@
         "Sábado"
       ]
     },
-    "hr": {
+    "hr-BA": {
       "months": [
         "Siječanj",
         "Veljača",
@@ -1302,7 +1336,7 @@
         "Subota"
       ]
     },
-    "ko": {
+    "ko-KR": {
       "months": [
         "1월",
         "2월",
@@ -1336,7 +1370,7 @@
         "토요일"
       ]
     },
-    "lt": {
+    "lt-LT": {
       "months": [
         "Sausio",
         "Vasario",
@@ -1370,7 +1404,7 @@
         "Šeštadienis"
       ]
     },
-    "lv": {
+    "lv-LV": {
       "months": [
         "Janvāris",
         "Februāris",
@@ -1404,7 +1438,7 @@
         "Sestdiena"
       ]
     },
-    "mk": {
+    "mk-MK": {
       "months": [
         "јануари",
         "февруари",
@@ -1438,7 +1472,7 @@
         "Сабота"
       ]
     },
-    "mn": {
+    "mn-MN": {
       "months": [
         "1-р сар",
         "2-р сар",
@@ -1506,7 +1540,7 @@
         "Sábado"
       ]
     },
-    "sk": {
+    "sk-SK": {
       "months": [
         "Január",
         "Február",
@@ -1540,7 +1574,7 @@
         "Sobota"
       ]
     },
-    "sq": {
+    "sq-AL": {
       "months": [
         "Janar",
         "Shkurt",
@@ -1769,7 +1803,7 @@
         "شەنبە"
       ]
     },
-    "he": {
+    "he-IL": {
       "months": [
         "ינואר",
         "פברואר",
@@ -1804,7 +1838,7 @@
         "ראשון"
       ]
     },
-    "hy": {
+    "hy-AM": {
       "months": [
         "Հունվար",
         "Փետրվար",
@@ -1872,7 +1906,7 @@
         "Ишенб"
       ]
     },
-    "rm": {
+    "rm-CH": {
       "months": [
         "Schaner",
         "Favrer",
@@ -1906,7 +1940,7 @@
         "Sonda"
       ]
     },
-    "ka": {
+    "ka-GE": {
       "months": [
         "იანვარი",
         "თებერვალი",
@@ -1940,7 +1974,7 @@
         "შაბათი"
       ]
     },
-    "kk": {
+    "kk-KZ": {
       "months": [
         "Қаңтар",
         "Ақпан",
