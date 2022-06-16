@@ -96,7 +96,7 @@ const Input: FunctionComponent<InputType> = ({
         { appendIcon ? <i><FontAwesomeIcon icon={appendIcon} /></i> : null }
       </div>
       {errorStatus && (
-      <p className="input__error-message text--caption text--pink">{errorMessage}</p>
+      <p className="input__error-message">{errorMessage}</p>
       )}
     </div>
   );

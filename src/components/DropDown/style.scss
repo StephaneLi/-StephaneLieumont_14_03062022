@@ -52,6 +52,15 @@
       z-index: 3;
       pointer-events: none;
     }
+
+    &__error-message {
+      position: absolute;
+      right:0;
+      top: 30px;
+      font-size: 0.6rem;
+      color: var(--error-color)!important;
+      animation: error .25s ease-in both;
+    }
   
     &__content {
       position: relative;
@@ -83,10 +92,16 @@
         background: transparent;
       }
     }
+
+    &--error {
+      label, input, i {      
+        color: var(--error-color)!important;
+      } 
+    }
   
     &--active {
       label {
-        opacity: 1;  
+        opacity: 1;
         transform: translate(-5px, -25px) scale(0.85);
       }     
     }
@@ -142,6 +157,34 @@
         padding-bottom: 10px;
       }
     }
+
+    &--error {
+      border: 1px  solid var(--error-color);
+    }
+  }
+}
+
+@keyframes error {
+  0% {
+    opacity: 0;
+    transform: translateX(3px);
+  }
+
+  25% {
+    transform: translateX(-3px);
+  }
+
+  50% {
+    transform: translateX(3px);
+  }
+
+  75% {
+    transform: translateX(-3px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
 

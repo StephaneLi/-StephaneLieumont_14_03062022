@@ -85,7 +85,7 @@ const DatePicker: FunctionComponent<DatePickerProps> = ({
       <div 
         ref={wrapperInputDate}
         onClick={() => displayDatePicker()}        
-        className={`input${valueInput !== "" ? " input--active" : ""}${errorStatus ? " input--error" : ""}${showCalendar ? " input--focus" : ""}`}
+        className={`input-date${valueInput !== "" ? " input-date--active" : ""}${errorStatus ? " input-date--error" : ""}${showCalendar ? " input-date--focus" : ""}`}
         style={{
           zIndex: zIndex,
           '--text-color': textColor,
@@ -96,11 +96,11 @@ const DatePicker: FunctionComponent<DatePickerProps> = ({
         } as CSSProperties}
       >
         <label htmlFor={name}>{label}</label>
-        <div className="input__content">
+        <div className="input-date__content">
           <input ref={inputDate} name={name} value={valueInput} readOnly={true} />
           <i><FontAwesomeIcon icon={faCalendar}/></i>
         </div>
-        { errorStatus && (<p className="input__error-message text--caption text--pink">{errorMessage}</p>) }
+        { errorStatus && (<p className="input-date__error-message">{errorMessage}</p>) }
       </div>
       <div 
         ref={wrapperDate}

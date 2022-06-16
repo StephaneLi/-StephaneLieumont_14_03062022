@@ -1,7 +1,7 @@
 .date-picker {
   position: relative;
 
-  .input {
+  .input-date {
     position: relative;
     width: 100%;
     max-width: 250px;
@@ -62,9 +62,11 @@
   
     &__error-message {
       position: absolute;
-      bottom: 0;
-      left: 0;
+      right:0;
+      top: 30px;
+      font-size: 0.6rem;
       color: var(--error-color)!important;
+      animation: error .25s ease-in both;
     }
   
     &--active {
@@ -84,11 +86,11 @@
     }
   
     &--error {
-      label, input {      
+      label, input, i {      
         color: var(--error-color);
       }
   
-      .input__content {
+      .input-date__content {
         border: 1px  solid var(--error-color);
       }
     }
@@ -118,3 +120,26 @@
   }
 }
 
+@keyframes error {
+  0% {
+    opacity: 0;
+    transform: translateX(3px);
+  }
+
+  25% {
+    transform: translateX(-3px);
+  }
+
+  50% {
+    transform: translateX(3px);
+  }
+
+  75% {
+    transform: translateX(-3px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

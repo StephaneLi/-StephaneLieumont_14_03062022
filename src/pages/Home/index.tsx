@@ -3,25 +3,53 @@ import {InputType} from "../../interfaces/Forms.intf"
 import Button from "../../components/Button"
 import Dropdown from "../../components/DropDown"
 import Input from "../../components/Input"
-import StatesData from "../../data/states.json"
 import DatePicker, { DatePickerResult } from "../../components/DatePicker"
-import Colors from '../../sass/themes/_colors.module.scss'
+import { Employee } from "../../interfaces/Employee.intf"
 
+import Colors from '../../sass/themes/_colors.module.scss'
 import "./style.scss"
+
+import StatesData from "../../data/states.json"
+import DepartmentsData from "../../data/departments.json"
+
 
 const Home: React.FunctionComponent = () => {
   const states: string[] = StatesData.map((element) => element.name)
-  const departments: string[] = ["Sales", "Marketing", "Engineering", "Human Resources", "Legal"]
+  const departments: string[] = DepartmentsData
 
-  const [formInputFirstname, setFormInputFirstname] = useState<InputType>({label: "First Name", name: "first-name", error: false, errorMessage: "Veuillez saisir votre Nom"})
-  const [formInputLastname, setFormInputLastname] = useState<InputType>({label: "Last Name", name: "last-name", error: false, errorMessage: "Veuillez saisir votre Nom"})
-  const [formInputDateOfBirth, setFormInputDateOfBirth] = useState<InputType>({label: "Date of Birth", name: "date-of-birth", error: false, errorMessage: "Veuillez saisir un Date valid", readOnly: true})
-  const [formInputStreet, setFormInputStreet] = useState<InputType>({label: "Street", name: "street", errorMessage: "Veuillez saisir votre Nom"})
-  const [formInputCity, setFormInputCity] = useState<InputType>({label: "City", name: "city", errorMessage: "Veuillez saisir votre Nom"})
-  const [formInputState, setFormInputState] = useState<InputType>({label: "State", name: "state", errorMessage: "Veuillez saisir votre Nom", choices: states})
-  const [formInputZipcode, setFormInputZipcode] = useState<InputType>({label: "Zip code", name: "zip-code", errorMessage: "Veuillez saisir votre Nom"})
-  const [formInputCompanyStart, setformInputCompanyStart] = useState<InputType>({label: "Start Date", name: "start-date", errorMessage: "Veuillez saisir un Date valid", readOnly: true})
-  const [formInputDepartment, setFormInputDepartment] = useState<InputType>({label: "Department", name: "department", errorMessage: "Veuillez saisir votre Nom", choices: departments})
+  const [formInputFirstname, setFormInputFirstname] = useState<InputType>({label: "First Name", name: "first-name", error: false, errorMessage: "Please enter your first name"})
+  const [formInputLastname, setFormInputLastname] = useState<InputType>({label: "Last Name", name: "last-name", error: false, errorMessage: "Please enter your last name"})
+  const [formInputDateOfBirth, setFormInputDateOfBirth] = useState<InputType>({label: "Date of Birth", name: "date-of-birth", error: false, errorMessage: "Please select a valid date", readOnly: true})
+  const [formInputStreet, setFormInputStreet] = useState<InputType>({label: "Street", name: "street", errorMessage: "Please enter your street"})
+  const [formInputCity, setFormInputCity] = useState<InputType>({label: "City", name: "city", errorMessage: "Please enter your city"})
+  const [formInputState, setFormInputState] = useState<InputType>({label: "State", name: "state", errorMessage: "Please select your state", choices: states})
+  const [formInputZipcode, setFormInputZipcode] = useState<InputType>({label: "Zip code", name: "zip-code", errorMessage: "Please enter a valid postal code"})
+  const [formInputCompanyStart, setformInputCompanyStart] = useState<InputType>({label: "Start Date", name: "start-date", errorMessage: "Please select a valid date", readOnly: true})
+  const [formInputDepartment, setFormInputDepartment] = useState<InputType>({label: "Department", name: "department", errorMessage: "Please select your department", choices: departments})
+
+  const checkValidForm = (): boolean => {
+    setFormInputFirstname({...formInputFirstname, error : !(formInputFirstname.value && typeof(formInputFirstname.value) === "string" && formInputFirstname.value!.length > 2)})
+    setFormInputLastname({...formInputLastname, error : !(formInputLastname.value && typeof(formInputLastname.value) === "string" && formInputLastname.value!.length > 2)})
+    setFormInputDateOfBirth({...formInputDateOfBirth, error : !(formInputDateOfBirth.value && formInputDateOfBirth.value instanceof Date)})
+    setFormInputStreet({...formInputStreet, error : !(formInputStreet.value && typeof(formInputStreet.value) === "string" && formInputStreet.value!.length > 2)})
+    setFormInputCity({...formInputCity, error : !(formInputCity.value && typeof(formInputCity.value) === "string" && formInputCity.value!.length > 2)})
+    setFormInputState({...formInputState, error : !(formInputState.value && typeof(formInputState.value) === "string" && states.includes(formInputState.value))})
+    setFormInputZipcode({...formInputZipcode, error : !(formInputZipcode.value && typeof(formInputZipcode.value) === "string" && typeof(parseInt(formInputZipcode.value)) === "number" && formInputZipcode.value.length === 5)})
+    setformInputCompanyStart({...formInputCompanyStart, error : !(formInputCompanyStart.value && formInputCompanyStart.value instanceof Date)})
+    setFormInputDepartment({...formInputDepartment, error : !(formInputDepartment.value && typeof(formInputDepartment.value) === "string" && departments.includes(formInputDepartment.value))})
+
+    return !(
+      formInputFirstname.error ||
+      formInputLastname.error ||
+      formInputDateOfBirth.error ||
+      formInputStreet.error ||
+      formInputCity.error ||
+      formInputState.error ||
+      formInputZipcode.error ||
+      formInputCompanyStart.error ||
+      formInputDepartment.error
+    )           
+  }
 
   return (<section className="box" id="home">
     <h2>Create Employee</h2>
@@ -35,11 +63,7 @@ const Home: React.FunctionComponent = () => {
             error={formInputFirstname.error} 
             errorMessage={formInputFirstname.errorMessage} 
             onChange={(value : string) => {
-              setFormInputFirstname({
-                ...formInputFirstname,
-                value: value,
-                text: value
-              })
+              setFormInputFirstname({...formInputFirstname, error: false, value: value, text: value})
             }}
           />
           <Input 
@@ -48,11 +72,7 @@ const Home: React.FunctionComponent = () => {
             error={formInputLastname.error} 
             errorMessage={formInputLastname.errorMessage} 
             onChange={(value : string) => {
-              setFormInputLastname({
-                ...formInputLastname,
-                value: value,
-                text: value
-              })
+              setFormInputLastname({...formInputLastname, error: false, value: value, text: value})
             }}
           />
           <DatePicker 
@@ -68,7 +88,7 @@ const Home: React.FunctionComponent = () => {
             focusColor={Colors.primary}
             borderColor={Colors.greyLigth}
             onSelect={(result: DatePickerResult) => {
-              setFormInputDateOfBirth({...formInputDateOfBirth, text: result.value, value: result.date})
+              setFormInputDateOfBirth({...formInputDateOfBirth, error: false, text: result.value, value: result.date})
             }}
           />
         </div>
@@ -80,7 +100,7 @@ const Home: React.FunctionComponent = () => {
             error={formInputStreet.error} 
             errorMessage={formInputStreet.errorMessage} 
             onChange={(value : string) => {
-              setFormInputStreet({...formInputStreet, value: value, text: value})
+              setFormInputStreet({...formInputStreet, error: false, value: value, text: value})
             }}
           />
           <Input 
@@ -89,7 +109,7 @@ const Home: React.FunctionComponent = () => {
             error={formInputCity.error} 
             errorMessage={formInputCity.errorMessage} 
             onChange={(value : string) => {
-              setFormInputCity({...formInputCity, value: value, text: value})
+              setFormInputCity({...formInputCity, error: false, value: value, text: value})
             }}
           />
           <Dropdown 
@@ -105,7 +125,7 @@ const Home: React.FunctionComponent = () => {
             focusColor={Colors.primary}
             borderColor={Colors.greyLigth}
             onSelect={(value : any) => {
-              setFormInputState({...formInputState, value: value})
+              setFormInputState({...formInputState, error: false, value: value})
             }}
           />
           <Input 
@@ -115,7 +135,7 @@ const Home: React.FunctionComponent = () => {
             error={formInputZipcode.error} 
             errorMessage={formInputZipcode.errorMessage} 
             onChange={(value : string) => {
-              setFormInputZipcode({...formInputZipcode, value: value, text: value})
+              setFormInputZipcode({...formInputZipcode, error: false, value: value, text: value})
             }}
           />
         </fieldset>
@@ -135,7 +155,7 @@ const Home: React.FunctionComponent = () => {
           focusColor={Colors.primary}
           borderColor={Colors.greyLigth}
           onSelect={(result: DatePickerResult) => {
-            setformInputCompanyStart({...formInputCompanyStart, text: result.value, value: result.date})
+            setformInputCompanyStart({...formInputCompanyStart, error: false, text: result.value, value: result.date})
           }}
         />
         <Dropdown 
@@ -151,26 +171,30 @@ const Home: React.FunctionComponent = () => {
           focusColor={Colors.primary}
           borderColor={Colors.greyLigth}
           onSelect={(value : string) => {
-            setFormInputDepartment({...formInputDepartment, value: value}) 
+            setFormInputDepartment({...formInputDepartment, error: false, value: value}) 
           }}
         />
       </div>
     </form>
     <Button label="Save" onClick={(e) => {
       e.preventDefault()
-      const object = {
-        firstname: formInputFirstname.value,
-        lastname: formInputLastname.value,
-        dateOfBirth: formInputDateOfBirth.value,
-        street: formInputStreet.value,
-        city: formInputCity.value,
-        state: formInputState.value,
-        zipcode: formInputZipcode.value,
-        start: formInputCompanyStart.value,
-        department: formInputDepartment.value
-      }
 
-      console.log(object)
+      if (checkValidForm()) {
+        const employee: Employee = {
+          firstname: formInputFirstname.value as string,
+          lastname: formInputLastname.value as string,
+          dateOfBirth: formInputDateOfBirth.value as Date,
+          street: formInputStreet.value as string,
+          city: formInputCity.value as string,
+          state: formInputState.value as string,
+          zipcode: parseInt(formInputZipcode.value as string),
+          start: formInputCompanyStart.value as Date,
+          department: formInputDepartment.value as string
+        }
+        console.log(employee)
+      } else {
+        // Popup message erreur
+      }
     }} />
   </section>)
 }

@@ -70,9 +70,11 @@
 
   &__error-message {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    right:0;
+    top: 30px;
+    font-size: 0.6rem;
     color: $danger!important;
+    animation: error .25s ease-in both;
   }
 
   &--focus, &--active {
@@ -97,7 +99,7 @@
   }
 
   &--error {
-    label, input {      
+    label, input, i {      
       color: $danger!important;
     }
 
@@ -113,3 +115,27 @@
   }
 }
 
+
+@keyframes error {
+  0% {
+    opacity: 0;
+    transform: translateX(3px);
+  }
+
+  25% {
+    transform: translateX(-3px);
+  }
+
+  50% {
+    transform: translateX(3px);
+  }
+
+  75% {
+    transform: translateX(-3px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

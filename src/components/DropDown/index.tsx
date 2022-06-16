@@ -62,7 +62,7 @@ const Dropdown: FunctionComponent<DropDownProps> = ({
         '--border-radius': borderRadius,
       } as CSSProperties}
     >
-      <div onClick={displayOptions} className={`dropdown__input${ inputValue !== '' ? ' dropdown__input--active' : '' }`}>
+      <div onClick={displayOptions} className={`dropdown__input${ inputValue !== '' ? ' dropdown__input--active' : '' }${ error ?  ' dropdown__input--error' : ''}`}>
         <label htmlFor={name}>{label}</label>
         <div className="dropdown__input__content">
           <input 
@@ -74,11 +74,9 @@ const Dropdown: FunctionComponent<DropDownProps> = ({
           />
           <i><FontAwesomeIcon icon={faAngleDown} /></i>
         </div>
-        {error && (
-          <p>{errorMessage}</p>
-        )}
+        {error && (<p className="dropdown__input__error-message">{errorMessage}</p>)}
       </div>
-      <div className={`dropdown__choicies`}>
+      <div className={`dropdown__choicies${ error ?  ' dropdown__choicies--error' : ''}`}>
         <ul>
           {choicies.map((element, index) => (
             <li onClick={onClickOption} key={'option-' + index}>{element}</li>
@@ -90,3 +88,4 @@ const Dropdown: FunctionComponent<DropDownProps> = ({
 }
 
 export default Dropdown
+
