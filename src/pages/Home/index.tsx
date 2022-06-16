@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {MouseEvent, useState} from "react"
 import {InputType} from "../../interfaces/Forms.intf"
 import Button from "../../components/Button"
 import Dropdown from "../../components/DropDown"
@@ -11,6 +11,7 @@ import "./style.scss"
 
 import StatesData from "../../data/states.json"
 import DepartmentsData from "../../data/departments.json"
+import Dialog from "../../components/Dialog"
 
 
 const Home: React.FunctionComponent = () => {
@@ -27,7 +28,9 @@ const Home: React.FunctionComponent = () => {
   const [formInputCompanyStart, setformInputCompanyStart] = useState<InputType>({label: "Start Date", name: "start-date", errorMessage: "Please select a valid date", readOnly: true})
   const [formInputDepartment, setFormInputDepartment] = useState<InputType>({label: "Department", name: "department", errorMessage: "Please select your department", choices: departments})
 
-  const checkValidForm = (): boolean => {
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false)
+
+  const checkForm = () => {
     setFormInputFirstname({...formInputFirstname, error : !(formInputFirstname.value && typeof(formInputFirstname.value) === "string" && formInputFirstname.value!.length > 2)})
     setFormInputLastname({...formInputLastname, error : !(formInputLastname.value && typeof(formInputLastname.value) === "string" && formInputLastname.value!.length > 2)})
     setFormInputDateOfBirth({...formInputDateOfBirth, error : !(formInputDateOfBirth.value && formInputDateOfBirth.value instanceof Date)})
@@ -36,19 +39,59 @@ const Home: React.FunctionComponent = () => {
     setFormInputState({...formInputState, error : !(formInputState.value && typeof(formInputState.value) === "string" && states.includes(formInputState.value))})
     setFormInputZipcode({...formInputZipcode, error : !(formInputZipcode.value && typeof(formInputZipcode.value) === "string" && typeof(parseInt(formInputZipcode.value)) === "number" && formInputZipcode.value.length === 5)})
     setformInputCompanyStart({...formInputCompanyStart, error : !(formInputCompanyStart.value && formInputCompanyStart.value instanceof Date)})
-    setFormInputDepartment({...formInputDepartment, error : !(formInputDepartment.value && typeof(formInputDepartment.value) === "string" && departments.includes(formInputDepartment.value))})
+    setFormInputDepartment({...formInputDepartment, error : !(formInputDepartment.value && typeof(formInputDepartment.value) === "string" && departments.includes(formInputDepartment.value))})       
+  }
+
+  const validateForm = (): boolean => {
+    checkForm()
 
     return !(
-      formInputFirstname.error ||
-      formInputLastname.error ||
-      formInputDateOfBirth.error ||
-      formInputStreet.error ||
-      formInputCity.error ||
-      formInputState.error ||
-      formInputZipcode.error ||
-      formInputCompanyStart.error ||
-      formInputDepartment.error
-    )           
+      formInputFirstname.error || !formInputFirstname.value ||
+      formInputLastname.error || !formInputLastname.value ||
+      formInputDateOfBirth.error || !formInputDateOfBirth.value ||
+      formInputStreet.error || !formInputStreet.value ||
+      formInputCity.error || !formInputCity.value ||
+      formInputState.error || !formInputState.value ||
+      formInputZipcode.error || !formInputZipcode.value ||
+      formInputCompanyStart.error || !formInputCompanyStart.value ||
+      formInputDepartment.error || !formInputDepartment.value
+    ) 
+  }
+
+  const resetForm = () => {
+    setFormInputFirstname({...formInputFirstname, error: false, value: undefined, text: ''})
+    setFormInputLastname({...formInputLastname, error: false, value: undefined, text: ''})
+    setFormInputDateOfBirth({...formInputDateOfBirth, error: false, value: undefined, text: ''})
+    setFormInputStreet({...formInputStreet, error: false, value: undefined, text: ''})
+    setFormInputCity({...formInputCity, error: false, value: undefined, text: ''})
+    setFormInputState({...formInputState, error: false, value: undefined, text: ''})
+    setFormInputZipcode({...formInputZipcode, error: false, value: undefined, text: ''})
+    setformInputCompanyStart({...formInputCompanyStart, error: false, value: undefined, text: ''})
+    setFormInputDepartment({...formInputDepartment, error: false, value: undefined, text: ''})   
+  }
+
+  const onSubmit = async (e: MouseEvent) => {
+    e.preventDefault()
+
+    const validator = validateForm()
+
+    if (validator) {
+      const employee: Employee = {
+        firstname: formInputFirstname.value as string,
+        lastname: formInputLastname.value as string,
+        dateOfBirth: formInputDateOfBirth.value as Date,
+        street: formInputStreet.value as string,
+        city: formInputCity.value as string,
+        state: formInputState.value as string,
+        zipcode: parseInt(formInputZipcode.value as string),
+        start: formInputCompanyStart.value as Date,
+        department: formInputDepartment.value as string
+      }
+      console.log(employee)
+      setShowSuccessDialog(true)
+    } else {
+      // Popup message erreur
+    } 
   }
 
   return (<section className="box" id="home">
@@ -62,6 +105,7 @@ const Home: React.FunctionComponent = () => {
             name={formInputFirstname.name} 
             error={formInputFirstname.error} 
             errorMessage={formInputFirstname.errorMessage} 
+            text={formInputFirstname.text}
             onChange={(value : string) => {
               setFormInputFirstname({...formInputFirstname, error: false, value: value, text: value})
             }}
@@ -70,6 +114,7 @@ const Home: React.FunctionComponent = () => {
             label={formInputLastname.label} 
             name={formInputLastname.name} 
             error={formInputLastname.error} 
+            text={formInputFirstname.text}
             errorMessage={formInputLastname.errorMessage} 
             onChange={(value : string) => {
               setFormInputLastname({...formInputLastname, error: false, value: value, text: value})
@@ -98,6 +143,7 @@ const Home: React.FunctionComponent = () => {
             label={formInputStreet.label} 
             name={formInputStreet.name} 
             error={formInputStreet.error} 
+            text={formInputStreet.text}
             errorMessage={formInputStreet.errorMessage} 
             onChange={(value : string) => {
               setFormInputStreet({...formInputStreet, error: false, value: value, text: value})
@@ -107,6 +153,7 @@ const Home: React.FunctionComponent = () => {
             label={formInputCity.label} 
             name={formInputCity.name} 
             error={formInputCity.error} 
+            text={formInputCity.text}
             errorMessage={formInputCity.errorMessage} 
             onChange={(value : string) => {
               setFormInputCity({...formInputCity, error: false, value: value, text: value})
@@ -118,7 +165,7 @@ const Home: React.FunctionComponent = () => {
             error={formInputState.error} 
             errorMessage={formInputState.errorMessage} 
             choicies={formInputState.choices} 
-            value={formInputState.value as string} 
+            value={formInputState.value as string}
             zIndex={10} 
             textColor={Colors.secondry}
             errorColor={Colors.danger}
@@ -132,7 +179,8 @@ const Home: React.FunctionComponent = () => {
             type={"number"} 
             label={formInputZipcode.label} 
             name={formInputZipcode.name} 
-            error={formInputZipcode.error} 
+            error={formInputZipcode.error}
+            text={formInputZipcode.text}
             errorMessage={formInputZipcode.errorMessage} 
             onChange={(value : string) => {
               setFormInputZipcode({...formInputZipcode, error: false, value: value, text: value})
@@ -164,7 +212,7 @@ const Home: React.FunctionComponent = () => {
           error={formInputDepartment.error} 
           errorMessage={formInputDepartment.errorMessage} 
           choicies={formInputDepartment.choices} 
-          value={formInputDepartment.value as string} 
+          value={formInputDepartment.value as string}
           zIndex={10} 
           textColor={Colors.secondry}
           errorColor={Colors.danger}
@@ -176,27 +224,13 @@ const Home: React.FunctionComponent = () => {
         />
       </div>
     </form>
-    <Button label="Save" onClick={(e) => {
-      e.preventDefault()
+    <div className="form-controllers">
+      <Button label="Reset" onClick={() => resetForm()} outlined primaryColor={Colors.primary} secondaryColor={Colors.greenLigth} />
+      <Button label="Save" onClick={async (e: MouseEvent<HTMLElement>) => await onSubmit(e)} primaryColor={Colors.primary} />
+    </div>
 
-      if (checkValidForm()) {
-        const employee: Employee = {
-          firstname: formInputFirstname.value as string,
-          lastname: formInputLastname.value as string,
-          dateOfBirth: formInputDateOfBirth.value as Date,
-          street: formInputStreet.value as string,
-          city: formInputCity.value as string,
-          state: formInputState.value as string,
-          zipcode: parseInt(formInputZipcode.value as string),
-          start: formInputCompanyStart.value as Date,
-          department: formInputDepartment.value as string
-        }
-        console.log(employee)
-      } else {
-        // Popup message erreur
-      }
-    }} />
-  </section>)
-}
+    <Dialog text="Employee Created !" showDialog={showSuccessDialog} onClose={() => setShowSuccessDialog(false)} />
+  </section>  
+  )}
 
 export default Home

@@ -92,6 +92,8 @@
       grid-row-gap: 0px;
       align-items: center;
       justify-items: center;
+      transform: scale(1);
+      opacity: 1;
 
       div {
         height: 27px;
@@ -177,6 +179,8 @@
       align-items: center;
       justify-items: center;
       transition: all 0.15s ease-in-out;
+      transform: scale(0.8);
+      opacity: 0;
 
       .month {
         opacity: 1;
@@ -203,6 +207,8 @@
       overflow: auto;
       z-index: 1;
       transition: all 0.15s ease-in-out;
+      transform: scale(0.8);
+      opacity: 0;
 
       .year {
         height: 30px;
@@ -224,28 +230,29 @@
     pointer-events: none;
     animation: hide-table .10s ease-in both
   }
+
+  @keyframes show-table {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes hide-table {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  
+    100% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+  }  
 }
 
-@keyframes show-table {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes hide-table {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-}

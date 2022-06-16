@@ -1,5 +1,3 @@
-@import '../../sass/themes/colors';
-
 .button {
   display: inline-block;
   margin: 20px;
@@ -8,20 +6,20 @@
   line-height: 1rem;
   border-radius: 5px;
   overflow: hidden;
-  color:$primary;
-  background-color: $primary;
+  color:var(--primary-color);
+  background-color: var(--primary-color);
   cursor: pointer;
   z-index: 0;
 
   &--outlined {
     background-color: transparent;
-    border: 2px solid $primary;
-    color: $primary!important;
-    transition: border-color .15s ease-in-out  ;
+    box-shadow: inset 0 0 0 2px var(--primary-color);
+    color: var(--primary-color);
+    transition: box-shadow .15s ease-in-out  ;
 
     button, a {
       transition: color .15s ease-in-out  ;
-      color: $grey-ligth!important;
+      color: var(--primary-color)!important;
     }
 
     &::before {
@@ -29,9 +27,9 @@
     }
 
     &:hover {
-      border-color: $secondary;
+      box-shadow: inset 0 0 0 2px var(--secondary-color);
       button, a {
-        color:$primary!important;
+        color:var(--secondary-color)!important;
       }
     }
   }
@@ -76,7 +74,7 @@
   &--disabled {
     pointer-events: none;
     opacity: 0.4;
-    background-color: gray;
+    background-color:#f5f4f6;
     button, a {
       cursor:default!important;
     }
@@ -115,14 +113,16 @@
       opacity: 0.3;
     }
   }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }
 
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
 
-  to {
-    transform: rotate(360deg);
-  }
-}

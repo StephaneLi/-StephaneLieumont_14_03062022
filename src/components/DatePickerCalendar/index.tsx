@@ -44,16 +44,16 @@ const DatePickerCalendar: FunctionComponent<DatePickerCalendarProps> = ({
   translateDaysShort.push(firstDay)
 
   // Set State
-  const [nDaysInMonth, setNDaysInMonth] = useState(0)
-  const [firstDaysInMonth, setFirstDaysInMonth] = useState(0)
-  const [selectDay, setSelectDay] = useState(day)
-  const [selectMonth, setSelectMonth] = useState(month)
-  const [selectYear, setSelectYear] = useState(year)
-  const [value, setValue] = useState(new Date())
+  const [nDaysInMonth, setNDaysInMonth] = useState<number>(0)
+  const [firstDaysInMonth, setFirstDaysInMonth] = useState<number>(0)
+  const [selectDay, setSelectDay] = useState<number>(day)
+  const [selectMonth, setSelectMonth] = useState<number>(month)
+  const [selectYear, setSelectYear] = useState<number>(year)
+  const [value, setValue] = useState<Date>(new Date())
 
-  const [showDays, setShowDays] = useState(true)
-  const [showMonths, setShowMonths] = useState(false)
-  const [showYears, setShowYears] = useState(false)
+  const [showDays, setShowDays] = useState<boolean>()
+  const [showMonths, setShowMonths] = useState<boolean>(false)
+  const [showYears, setShowYears] = useState<boolean>(false)
 
   useEffect(() => {
     setValue(new Date(year, month, day))
@@ -240,22 +240,13 @@ const DatePickerCalendar: FunctionComponent<DatePickerCalendarProps> = ({
         </button>
       </div>
       <div className="date-picker-calendar__table">
-        <div className={`date-picker-calendar__table__days ${
-          showDays
-            ? "show-table"
-            : "hide-table"}`}>
+        <div className={`date-picker-calendar__table__days ${showDays === true  ? "show-table" : showDays === false ? "hide-table" : ""}`}>
           {generateDaysTable()}
         </div>
-        <div className={`date-picker-calendar__table__months ${
-          showMonths
-            ? "show-table"
-            : "hide-table"}`}>
+        <div className={`date-picker-calendar__table__months ${showMonths ? "show-table" : "hide-table"}`}>
           {generateMonthsTable()}
         </div>
-        <div className={`date-picker-calendar__table__years ${
-          showYears
-            ? "show-table"
-            : "hide-table"}`}>
+        <div className={`date-picker-calendar__table__years ${showYears ? "show-table" : "hide-table"}`}>
           {generateYearsTable()}
         </div>
       </div>

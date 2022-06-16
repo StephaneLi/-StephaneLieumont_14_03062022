@@ -87,7 +87,7 @@
   
     &--error {
       label, input, i {      
-        color: var(--error-color);
+        color: var(--error-color)!important;
       }
   
       .input-date__content {
@@ -103,43 +103,69 @@
     width: 100%;
     z-index: 10;      
     transform-origin: top;
-    opacity: 0;
-    transform: scale(0.2);
     display: none;
+    opacity: 0;
+    transform: scale(0.6);
 
     &.hide {
       display: block;
       pointer-events: none;
-      animation: hide-dialog .15s ease-in both;
+      animation: hide-picker .15s ease-in both;
     }
 
     &.show {
       display: block;
-      animation: show-dialog .15s ease-out both;
+      animation: show-picker .15s ease-out both;
+    }
+
+    @keyframes error {
+      0% {
+        opacity: 0;
+        transform: translateX(3px);
+      }
+    
+      25% {
+        transform: translateX(-3px);
+      }
+    
+      50% {
+        transform: translateX(3px);
+      }
+    
+      75% {
+        transform: translateX(-3px);
+      }
+    
+      100% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+    }
+  }
+
+  @keyframes show-picker {
+    0% {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes hide-picker {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: scale(0.6);
     }
   }
 }
 
-@keyframes error {
-  0% {
-    opacity: 0;
-    transform: translateX(3px);
-  }
 
-  25% {
-    transform: translateX(-3px);
-  }
-
-  50% {
-    transform: translateX(3px);
-  }
-
-  75% {
-    transform: translateX(-3px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}

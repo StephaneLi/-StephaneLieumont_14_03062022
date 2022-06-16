@@ -43,11 +43,11 @@ const DatePicker: FunctionComponent<DatePickerProps> = ({
   day,
   intervalYearsSelection,
   elevationPicker = false,
-  headerPickerColor = '#0F9D58',
-  borderColor = '#dadce0',
-  textColor = '#70757a',
-  focusColor = '#0F9D58',
-  errorColor = '#DB4A39',
+  headerPickerColor = '#059ECE',
+  borderColor = '#DADCE0',
+  textColor = '#70757A',
+  focusColor = '#059ECE',
+  errorColor = '#EF6C6C',
   borderRadius = '5px',
   zIndex = 999,
   onSelect,
@@ -74,6 +74,10 @@ const DatePicker: FunctionComponent<DatePickerProps> = ({
   useEffect(() => {
     setErrorStatus(error)
   }, [error])
+
+  useEffect(() => {
+    setValueInput(value)
+  }, [value])
 
   const displayDatePicker = (active?: boolean) => {
     showCalendar ? inputDate.current?.blur() : inputDate.current?.focus()

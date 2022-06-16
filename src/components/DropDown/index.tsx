@@ -1,6 +1,6 @@
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { FunctionComponent, CSSProperties, MouseEvent, useRef, useState } from "react"
+import { FunctionComponent, CSSProperties, MouseEvent, useRef, useState, useEffect } from "react"
 import './style.scss'
 
 type DropDownProps = {
@@ -26,10 +26,10 @@ const Dropdown: FunctionComponent<DropDownProps> = ({
   error = false,
   choicies = [],
   value = '',
-  borderColor = '#dadce0',
-  textColor = '#70757a',
-  focusColor = '#0F9D58',
-  errorColor = '#DB4A39',
+  borderColor = '#DADCE0',
+  textColor = '#70757A',
+  focusColor = '#059ECE',
+  errorColor = '#EF6C6C',
   borderRadius = '5px',
   zIndex = 1,
   onSelect,
@@ -38,6 +38,10 @@ const Dropdown: FunctionComponent<DropDownProps> = ({
   const inputElement = useRef<HTMLInputElement>(null);
   const [showOptions, setShowOptions] = useState<boolean>(false)
   const [inputValue, setInputValue] = useState<string>(value)
+
+  useEffect(() => {
+    setInputValue(value)
+  }, [value])
 
   const displayOptions = () => {
     inputElement.current?.focus()
