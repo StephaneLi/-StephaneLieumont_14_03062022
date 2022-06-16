@@ -13,13 +13,11 @@ export type InputType = {
   onClick?: CallableFunction,
   onBlur?:CallableFunction,
   isFocus?:boolean,
-  value?: string,
-  date?: Date,
+  value?: string | string[] | Date | boolean,
+  text?: string,
   choices?: string[],
-  checked?: boolean,
   disabled?: boolean,
   readOnly?:boolean,
-  showDialog?:boolean,
   type?: HTMLInputTypeAttribute
 }
 
@@ -30,5 +28,5 @@ export type ButtonType = {
   navigate?: string,
   disabled?: boolean,
   loading?: boolean,
-  callback?: MouseEventHandler<HTMLButtonElement>,
+  onClick?: MouseEventHandler<HTMLButtonElement>,
 }

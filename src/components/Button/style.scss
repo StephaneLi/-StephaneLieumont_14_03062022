@@ -11,6 +11,7 @@
   color:$primary;
   background-color: $primary;
   cursor: pointer;
+  z-index: 0;
 
   &--outlined {
     background-color: transparent;

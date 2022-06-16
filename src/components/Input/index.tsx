@@ -13,6 +13,7 @@ const Input: FunctionComponent<InputType> = ({
   onChange,
   onClick,
   onBlur,
+  text = '',
   isFocus,
   disabled = false,
   type = 'text',
@@ -20,7 +21,8 @@ const Input: FunctionComponent<InputType> = ({
   value = '',
 } : InputType) => {  
   const [onFocusInput, setOnFocusInput] = useState<boolean>(false)
-  const [valueInput, setValueInput] = useState<string>(value)
+  const [valueInput, setValueInput] = useState<string | string[] | Date | boolean>(value)
+  const [textInput, setTextInput] = useState<string>(text)
   const [errorStatus, setErrorStatus] = useState<boolean>(error)
 
   useEffect(() => {
@@ -36,11 +38,19 @@ const Input: FunctionComponent<InputType> = ({
   }, [value])
 
   useEffect(() => {
+    setTextInput(textInput)
+  }, [textInput])
+
+  useEffect(() => {
+    setTextInput(text)
+  }, [text])
+
+  useEffect(() => {
     setOnFocusInput(isFocus!)
   }, [isFocus])
 
   const handleChange = (event : ChangeEvent<HTMLInputElement>) => {
-    setValueInput(event.target.value )
+    setTextInput(event.target.value)
 
     if(onChange) onChange(event.target.value)    
   }
@@ -67,7 +77,7 @@ const Input: FunctionComponent<InputType> = ({
 
   return (
     <div className={
-      `input${ valueInput !== '' ? ' input--active' : ''}${ onFocusInput ? ' input--focus' : ''}${ errorStatus ?  ' input--error' : ''}${ readOnly ?  ' input--read' : ''}`
+      `input${ textInput !== '' ? ' input--active' : ''}${ onFocusInput ? ' input--focus' : ''}${ errorStatus ?  ' input--error' : ''}${ readOnly ?  ' input--read' : ''}`
     }>
       <label htmlFor={name} className={prependIcon ? 'indent' : '' }>{label}</label>
       <div onClick={readOnly ? handleClick : () => {}} className="input__content">
@@ -81,7 +91,7 @@ const Input: FunctionComponent<InputType> = ({
           onBlur={handleOnBlur} 
           onChange={handleChange}
           disabled={disabled}     
-          value={valueInput}
+          value={textInput}
         />
         { appendIcon ? <i><FontAwesomeIcon icon={appendIcon} /></i> : null }
       </div>

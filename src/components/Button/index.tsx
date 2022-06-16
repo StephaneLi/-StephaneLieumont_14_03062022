@@ -3,7 +3,7 @@ import { ButtonType } from "../../interfaces/Forms.intf";
 import { NavLink } from "react-router-dom";
 import './style.scss'
 
-const Button: FunctionComponent<ButtonType> = ({label = "button", outlined = false, buttonLink = false, loading = false, disabled = false, callback}) => {
+const Button: FunctionComponent<ButtonType> = ({label = "button", outlined = false, buttonLink = false, loading = false, disabled = false, onClick}) => {
   if(buttonLink) {
     return (
       <div className={`button${ outlined ? ' button--outlined' : ''}${ loading ? ' button--isloading' : ''}`}>
@@ -18,7 +18,7 @@ const Button: FunctionComponent<ButtonType> = ({label = "button", outlined = fal
       `button${ outlined ? ' button--outlined' : ''}${ disabled ? ' button--disabled' : ''}${ loading ? ' button--isloading' : ''}`
     }>
       { loading && ( <div className="button__loader"></div> )}
-      <button type="button" onClick={callback}>{label}</button>
+      <button type="button" onClick={onClick}>{label}</button>
     </div>    
   );
 }
