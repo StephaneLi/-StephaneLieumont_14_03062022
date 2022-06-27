@@ -8,16 +8,17 @@ export type InputType = {
   name?: string
   placeholder?: string
   errorMessage?: string
+  inputIsValid?: boolean
   error?: boolean
-  onChange?: CallableFunction
-  onClick?: CallableFunction
-  onBlur?:CallableFunction
   isFocus?:boolean
-  value?: string | string[] | Date | boolean
+  value?: string | string[] | boolean | number
   text?: string
   choices?: string[]
   disabled?: boolean
   readOnly?:boolean
+  onChange?: CallableFunction
+  onClick?: CallableFunction
+  onBlur?:CallableFunction
   type?: HTMLInputTypeAttribute
 }
 

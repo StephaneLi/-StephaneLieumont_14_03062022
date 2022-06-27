@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useEffect, MouseEvent, useState, CSSProperties} from "react"
-import jsonTranslate from "./translate/data.translate.json"
+import jsonTranslate from "./data.translate.json"
 import {faHome, faAngleLeft, faAngleRight, faClose} from "@fortawesome/free-solid-svg-icons"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import "./style.scss"

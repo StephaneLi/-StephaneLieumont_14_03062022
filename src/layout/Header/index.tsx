@@ -18,7 +18,10 @@ const Header: FunctionComponent = () => {
       <div className="logo">
         <NavLink to={routeHome.path}>
           <img src={imgLogo} alt="wealth health logo" />
-          <h1>HRnet</h1>
+          <div>
+            <h1>HRnet</h1>
+            <p>by wealth health</p>
+          </div>
         </NavLink>
       </div>
     </header>

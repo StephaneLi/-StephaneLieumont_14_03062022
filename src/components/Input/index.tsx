@@ -21,7 +21,7 @@ const Input: FunctionComponent<InputType> = ({
   value = '',
 } : InputType) => {  
   const [onFocusInput, setOnFocusInput] = useState<boolean>(false)
-  const [valueInput, setValueInput] = useState<string | string[] | Date | boolean>(value)
+  const [valueInput, setValueInput] = useState<string | string[] | number | boolean>(value)
   const [textInput, setTextInput] = useState<string>(text)
   const [errorStatus, setErrorStatus] = useState<boolean>(error)
 
