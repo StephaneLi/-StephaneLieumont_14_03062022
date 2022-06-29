@@ -86,6 +86,7 @@ const Input: FunctionComponent<InputType> = ({
       <div data-testid={'wrapper'} onClick={readOnly ? handleClick : () => {}} className="input__content">
         { prependIcon ? <i  data-testid="prepend-icon"><FontAwesomeIcon icon={prependIcon} /></i> : null }
         <input 
+          id={name} 
           data-testid={'input'}
           type={type} 
           name={name} 

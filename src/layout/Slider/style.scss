@@ -9,8 +9,9 @@
   width: 180px;
   margin: 30px 0;
 
-  a {
-    li {
+  li {
+    a {
+      display: block;
       padding: 7px 10px;
       border-left: 4px solid $grey-ligth;
       font-size: 0.9rem;
@@ -20,27 +21,22 @@
   
       i {
         margin-right: 17px;
-      } 
-    }
-
-    &:hover {
-      li {
-        border-left: 20px solid $secondary;
-      }      
-    }
-
-    &.active {      
-      color: $green-ligth!important;
-  
-      li {
-        border-color: $green-ligth!important;  
       }
 
-      &:hover {
-        li {
+      &.active {      
+        color: $green-ligth!important;
+        border-color: $green-ligth!important;  
+  
+        &:hover {
           border-left: 4px solid $grey-ligth;
         }
       }
+    }
+
+    &:hover {
+      a {
+        border-left: 20px solid $secondary;
+      }      
     }
   }
 }
