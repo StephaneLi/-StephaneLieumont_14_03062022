@@ -6,6 +6,7 @@ import Colors from '../../sass/themes/_colors.module.scss'
 import TableData, { TableDataLegend } from '@stephane1920/ts-advanced-table-react';
 
 const Employees: React.FunctionComponent = () => {
+  // create table data legend
   const listLegend: TableDataLegend[] = [
     {label: 'First Name', entry: 'firstname'},
     {label: 'Last Name', entry: 'lastname'},
@@ -18,11 +19,13 @@ const Employees: React.FunctionComponent = () => {
     {label: 'Zip Code', entry: 'zipcode'},
   ]
 
+  // load data on store redux
   const listEmployees: Employee[] = useAppSelector((state) => state.listEmployeeSlice )
   const [listEmployeesFormatted, setListEmployeesFormatted] = useState<Object[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
+    // convert DateTime number in Date Object
     const formatEmployeeToObjectString = (listEmployees: Employee[]): Object[] => {
       return  listEmployees.map((employee) => {
         return {

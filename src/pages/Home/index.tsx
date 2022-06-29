@@ -21,10 +21,10 @@ import { DatePickerResult } from "@stephane1920/ts-datepicker-react/dist/DatePic
 
 const Home: React.FunctionComponent = () => {
   const states: any[] = StatesData
-  const statesName: string[] = StatesData.map((element) => element.name)
-  
+  const statesName: string[] = StatesData.map((element) => element.name)  
   const departments: string[] = DepartmentsData
 
+  // read form inputs on provider
   const formInputFirstname = useAppSelector((state) => state.formEmployeeSlice.formInputFirstname )
   const formInputLastname = useAppSelector((state) => state.formEmployeeSlice.formInputLastname )
   const formInputDateOfBirth = useAppSelector((state) => state.formEmployeeSlice.formInputDateOfBirth )
@@ -34,6 +34,7 @@ const Home: React.FunctionComponent = () => {
   const formInputZipcode = useAppSelector((state) => state.formEmployeeSlice.formInputZipcode )
   const formInputCompanyStart = useAppSelector((state) => state.formEmployeeSlice.formInputCompanyStart )
   const formInputDepartment = useAppSelector((state) => state.formEmployeeSlice.formInputDepartment )
+
   const dispatch = useAppDispatch()
 
   const [showSuccessDialog, setShowSuccessDialog] = useState(false)
