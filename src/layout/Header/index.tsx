@@ -14,7 +14,7 @@ const Header: FunctionComponent = () => {
   const routeHome: RouteAppObject = RoutesApp.getRouteByName('home')!
 
   return (
-    <header id="header">
+    <header data-testid="header" id="header">
       <div className="logo">
         <NavLink to={routeHome.path}>
           <img src={imgLogo} alt="wealth health logo" />

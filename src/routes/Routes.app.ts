@@ -35,14 +35,10 @@ const getRouteByName = (name: string):RouteAppObject | undefined => {
   return routeList.find(route => route.name === name)
 }
 
-const getRouteByPathName = (pathname: string):RouteAppObject | undefined => {
-  return routeList.find(route => route.path === pathname)
-}
 
 const RoutesApp = {
   routeList,
-  getRouteByName,
-  getRouteByPathName
+  getRouteByName
 }
 
 export default RoutesApp

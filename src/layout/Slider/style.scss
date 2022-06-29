@@ -1,3 +1,4 @@
+@import '../../sass/abstract/variables';
 @import '../../sass/themes/colors';
 
 #slider {
@@ -18,7 +19,7 @@
       transition: border .15s ease-in-out;
   
       i {
-        margin-right: 15px;
+        margin-right: 17px;
       } 
     }
 
@@ -40,6 +41,21 @@
           border-left: 4px solid $grey-ligth;
         }
       }
+    }
+  }
+}
+
+@media (max-width: $screen-md) {
+  #slider {
+    position: absolute;
+    top:0;
+    right:0;
+    width: 70px!important;
+    overflow: hidden;
+
+    li {
+      width: 53px;
+      overflow: hidden;
     }
   }
 }

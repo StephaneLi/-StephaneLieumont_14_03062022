@@ -76,13 +76,17 @@ const Input: FunctionComponent<InputType> = ({
   }
 
   return (
-    <div className={
-      `input${ textInput !== '' ? ' input--active' : ''}${ onFocusInput ? ' input--focus' : ''}${ errorStatus ?  ' input--error' : ''}${ readOnly ?  ' input--read' : ''}`
-    }>
+    <div 
+      data-testid="input-container"
+      className={
+        `input${ textInput !== '' ? ' input--active' : ''}${ onFocusInput ? ' input--focus' : ''}${ errorStatus ?  ' input--error' : ''}${ readOnly ?  ' input--read' : ''}`
+      }
+    >
       <label htmlFor={name} className={prependIcon ? 'indent' : '' }>{label}</label>
-      <div onClick={readOnly ? handleClick : () => {}} className="input__content">
-        { prependIcon ? <i><FontAwesomeIcon icon={prependIcon} /></i> : null }
+      <div data-testid={'wrapper'} onClick={readOnly ? handleClick : () => {}} className="input__content">
+        { prependIcon ? <i  data-testid="prepend-icon"><FontAwesomeIcon icon={prependIcon} /></i> : null }
         <input 
+          data-testid={'input'}
           type={type} 
           name={name} 
           readOnly={readOnly} 
@@ -93,7 +97,7 @@ const Input: FunctionComponent<InputType> = ({
           disabled={disabled}     
           value={textInput}
         />
-        { appendIcon ? <i><FontAwesomeIcon icon={appendIcon} /></i> : null }
+        { appendIcon ? <i data-testid="append-icon"><FontAwesomeIcon icon={appendIcon} /></i> : null }
       </div>
       {errorStatus && (
       <p className="input__error-message">{errorMessage}</p>

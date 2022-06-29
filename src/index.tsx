@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import reportWebVitals from './config/config.report';
 import store from './store/main.store';
 import { Provider } from 'react-redux';
 
@@ -19,4 +18,3 @@ root.render(
   </Provider>
 );
 
-reportWebVitals();

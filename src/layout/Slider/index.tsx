@@ -10,14 +10,14 @@ import './style.scss'
  */
 const Slider: FunctionComponent = () => {
   return (
-    <div id="slider">
+    <div data-testid="slider" id="slider">
       <nav>
         <ul>
         { RoutesApp.routeList.map(({ path, label, name, icon }) => (
           path !== '*' ?
           <NavLink key={name} to={path}>
             <li>            
-              { icon != null ?  <i><FontAwesomeIcon size='lg' icon={icon!} /></i> : null }
+              <i><FontAwesomeIcon size='lg' icon={icon!} /></i>
               {label}              
             </li>
           </NavLink>

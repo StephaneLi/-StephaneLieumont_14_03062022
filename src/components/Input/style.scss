@@ -4,7 +4,8 @@
   position: relative;
   width: 100%;
   max-width: 250px;
-  margin-bottom: 25px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 
   input:-webkit-autofill,
   input:-webkit-autofill:hover, 
@@ -79,8 +80,9 @@
 
   &--focus, &--active {
     label {  
+      font-size: 0.95rem!important;
       opacity: 1;    
-      transform: translate(-5px, -25px) scale(0.85);
+      transform: translate(-5px, -85%) scale(0.85);
     }
   }
 

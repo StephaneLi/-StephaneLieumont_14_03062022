@@ -17,3 +17,13 @@ main {
     margin-right: 0px!important;
   }
 }
+
+@media (max-width: $screen-md) {
+  main {
+    flex-direction: column!important;
+
+    .main-content {
+      width: 100%;
+    }
+  }
+}

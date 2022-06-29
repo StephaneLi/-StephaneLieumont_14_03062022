@@ -25,7 +25,6 @@ export type InputType = {
 export type ButtonType = {
   label?: string
   outlined?: boolean
-  buttonLink?: boolean
   navigate?: string
   disabled?: boolean
   loading?: boolean
