@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/StephaneLieumont_14_03062022/static/css/main.c586d734.css",
+    "main.js": "/StephaneLieumont_14_03062022/static/js/main.f2a84b66.js",
+    "static/media/logo-wealth-health.png": "/StephaneLieumont_14_03062022/static/media/logo-wealth-health.40d40b06ab2020506da1.png",
+    "index.html": "/StephaneLieumont_14_03062022/index.html",
+    "main.c586d734.css.map": "/StephaneLieumont_14_03062022/static/css/main.c586d734.css.map",
+    "main.f2a84b66.js.map": "/StephaneLieumont_14_03062022/static/js/main.f2a84b66.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c586d734.css",
+    "static/js/main.f2a84b66.js"
+  ]
+}
