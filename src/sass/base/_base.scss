@@ -42,6 +42,7 @@ h3, legend {
 }
 
 h3 {
+  margin-top: 0;
   margin-bottom: 20px;
 }
 
@@ -55,7 +56,9 @@ fieldset {
   border-radius: 5px;
   border: 1px solid rgba($secondary, .3); ;
   padding:20px;
+  
   margin: 15px;
+  margin-top: 0px;
 
   legend{
     padding: 5px 10px;
