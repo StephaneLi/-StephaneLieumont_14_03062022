@@ -5,8 +5,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ![GitHub repo size](https://img.shields.io/github/repo-size/StephaneLi/StephaneLieumont_14_03062022)
 ![GitHub jest](https://img.shields.io/badge/coverage-85%25-yellow)  
 
-## Project
+## Project  
 The project concerns an internal web application, called HRnet, which manages employee records.
+
+## Lighthouse reports performance  
+[REACT APP](https://github.com/StephaneLi/StephaneLieumont_14_03062022/blob/main/lighthouse_reports/Hrnet-react-audit-lighthouse.pdf)  
+[JQUERY APP](https://github.com/StephaneLi/StephaneLieumont_14_03062022/blob/main/lighthouse_reports/Hrnet-jquery-audit-lighthouse.pdf)  
 
 ## Deliverables
 [REACT APP](https://github.com/StephaneLi/StephaneLieumont_14_03062022)  
