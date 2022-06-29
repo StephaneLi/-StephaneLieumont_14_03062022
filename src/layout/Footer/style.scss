@@ -9,3 +9,9 @@
   opacity: 0.3;
 }
 
+@media (max-width: $screen-md) {
+  #footer {
+    margin-left: 0!important;
+  }
+}
+

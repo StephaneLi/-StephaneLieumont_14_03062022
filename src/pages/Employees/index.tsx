@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useAppSelector } from '../../store/main.store';
 import { Employee } from "../../interfaces/Employee.intf"
 import './style.scss'
-import TableData from '../../components/TableData';
-import { TableDataLegend } from '../../components/TableData/intf';
 import Colors from '../../sass/themes/_colors.module.scss'
-
+import TableData, { TableDataLegend } from '@stephane1920/ts-advanced-table-react';
 
 const Employees: React.FunctionComponent = () => {
   const listLegend: TableDataLegend[] = [
@@ -22,6 +20,7 @@ const Employees: React.FunctionComponent = () => {
 
   const listEmployees: Employee[] = useAppSelector((state) => state.listEmployeeSlice )
   const [listEmployeesFormatted, setListEmployeesFormatted] = useState<Object[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const formatEmployeeToObjectString = (listEmployees: Employee[]): Object[] => {
@@ -35,18 +34,28 @@ const Employees: React.FunctionComponent = () => {
     }
 
     setListEmployeesFormatted(formatEmployeeToObjectString(listEmployees))
+
+    const timer = setTimeout(() => {
+      setLoading(false)
+      clearTimeout(timer)
+    }, 500);    
   }, [listEmployees])
   
   return (    
-    <section id='employees' className='box'>
+    <section data-testid="employees" id='employees' className='box'>
       <h2>List Employees</h2>
-      <TableData 
-        listObjectsData={listEmployeesFormatted}
-        listLegend={listLegend}
-        lang={'en-EN'}
-        color={Colors.greenLigth}
-        textColor={Colors.secondary}
-      />
+      { loading ? (
+        <div className='loader'>Loading</div>
+      ) : (
+        <TableData 
+          listObjectsData={listEmployeesFormatted}
+          listLegend={listLegend}
+          lang={'en-EN'}
+          color={Colors.greenLigth}
+          textColor={Colors.secondary}
+        />
+      )}
+
     </section>
   )
 }

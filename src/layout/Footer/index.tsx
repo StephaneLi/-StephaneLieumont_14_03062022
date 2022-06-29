@@ -7,7 +7,7 @@ import './style.scss'
  */
 const Footer: FunctionComponent = () => {
   return (
-    <footer id="footer">
+    <footer data-testid="footer" id="footer">
       <p>copyrigth © { new Date().getFullYear() } Wealth Health - Tous droits réservés</p>
     </footer>
   );

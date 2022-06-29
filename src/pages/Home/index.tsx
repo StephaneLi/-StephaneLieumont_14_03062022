@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import Button from "../../components/Button"
 import Input from "../../components/Input"
-import DatePicker, { DatePickerResult } from "../../components/DatePicker"
 
 import Colors from '../../sass/themes/_colors.module.scss'
 import "./style.scss"
@@ -9,12 +8,16 @@ import "./style.scss"
 import StatesData from "../../data/states.json"
 import DepartmentsData from "../../data/departments.json"
 
-import Dialog from "../../components/Dialog"
+
 import { useAppDispatch, useAppSelector } from "../../store/main.store"
 import { FormEmployeeActions } from "../../store/formEmployee.store"
 import { listEmployeesActions } from "../../store/listEmployees.store"
 import { Employee } from "../../interfaces/Employee.intf"
-import Dropdown from "../../components/DropDown"
+
+import Dropdown from "@stephane1920/ts-dropdown-react"
+import Dialog from "@stephane1920/ts-dialog-react"
+import { DatePicker } from "@stephane1920/ts-datepicker-react"
+import { DatePickerResult } from "@stephane1920/ts-datepicker-react/dist/DatePicker"
 
 const Home: React.FunctionComponent = () => {
   const states: any[] = StatesData
@@ -66,7 +69,7 @@ const Home: React.FunctionComponent = () => {
       dateOfBirth: formInputDateOfBirth.value,
       street: formInputStreet.value,
       city: formInputCity.value,
-      state: states.find(item => item['name'] === formInputState.value)['abbreviation'] ,
+      state: states.find(item => item['name'] === formInputState.value)['abbreviation'],
       zipcode: parseInt(formInputZipcode.value),
       start: formInputCompanyStart.value,
       department: formInputDepartment.value
@@ -74,11 +77,12 @@ const Home: React.FunctionComponent = () => {
 
     dispatch(listEmployeesActions.addEmployee(employee))
     dispatch(FormEmployeeActions.reset({}))
+
     setShowSuccessDialog(true)
   }
 
   return (
-    <section className="box" id="home">
+    <section className="box" data-testid="home" id="home">
       <h2>Create Employee</h2>
       <form action="#" id="create-employee">
         <div className="row row--wrap row--jse row--start">
@@ -122,8 +126,9 @@ const Home: React.FunctionComponent = () => {
                 )
               }}
             />
-            <DatePicker 
+            <DatePicker
               zIndex={12}
+              name={formInputDateOfBirth.name}
               label={formInputDateOfBirth.label}
               error={formInputDateOfBirth.error}
               errorMessage={formInputDateOfBirth.errorMessage}
@@ -236,6 +241,7 @@ const Home: React.FunctionComponent = () => {
           <DatePicker 
             zIndex={11}
             label={formInputCompanyStart.label}
+            name={formInputCompanyStart.name}
             error={formInputCompanyStart.error}
             errorMessage={formInputCompanyStart.errorMessage}
             value={formInputCompanyStart.text}

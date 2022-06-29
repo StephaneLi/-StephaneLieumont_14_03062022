@@ -6,5 +6,5 @@ export type RouteAppObject = {
   label?: string
   title: string
   Component: React.FunctionComponent
-  icon?: IconProp
+  icon: IconProp
 }

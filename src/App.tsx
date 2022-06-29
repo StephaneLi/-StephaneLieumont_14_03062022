@@ -16,7 +16,7 @@ const App: React.FunctionComponent = () => {
   }, [dispatch])
 
   return (
-    <div className="react-app">
+    <div data-testid="app" className="react-app">
       <Router basename={process.env.PUBLIC_URL}>
         <Header />        
         <main>
