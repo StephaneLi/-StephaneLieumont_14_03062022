@@ -17,7 +17,7 @@ const Header: FunctionComponent = () => {
     <header data-testid="header" id="header">
       <div className="logo">
         <NavLink to={routeHome.path}>
-          <img src={imgLogo} alt="wealth health logo" />
+          <img width="80" height="80" src={imgLogo} alt="wealth health logo" />
           <div>
             <h1>HRnet</h1>
             <p>by wealth health</p>
